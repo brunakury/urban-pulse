@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: #0B0F17; --surface: #111827; --line: #1F2937; --strong: #374151;
+  --tx: #FFFFFF; --t2: #9CA3AF; --field: #0B0F17;
+}
+.theme-light {
+  --canvas: #F3F4F6; --surface: #FFFFFF; --line: #D1D5DB; --strong: #9CA3AF;
+  --tx: #111827; --t2: #4B5563; --field: #F9FAFB;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+
+/* Foco visível em alto contraste (duplo branco/azul) */
+:focus-visible { outline: 2px solid #fff; outline-offset: 2px; box-shadow: 0 0 0 4px #2563EB; }
+.on-light :focus-visible, .theme-light :focus-visible { outline-color: #0B0F17; }
+
+.mono-label { font: 500 11px/1.2 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .1em; }
+
+/* Slider */
+input[type=range].up-range { -webkit-appearance: none; appearance: none; width: 100%; height: 20px; background: transparent; cursor: pointer; margin: 0; }
+.up-range::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(to right, #2563EB var(--p), var(--line) var(--p)); }
+.up-range::-moz-range-track { height: 4px; border-radius: 2px; background: var(--line); }
+.up-range::-moz-range-progress { height: 4px; border-radius: 2px; background: #2563EB; }
+.up-range::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #fff; margin-top: -8px; border: 0; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.up-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 0; }
+
+/* Leaflet */
+.leaflet-container { background: #0B111E; font-family: Inter, sans-serif; outline: none; }
+.eq-pin { width: 26px; height: 26px; border-radius: 50%; background: #0B111E; border: 1.5px solid #E5E7EB; color: #fff; font: 500 12px/23px Inter, sans-serif; text-align: center; }
+.eq-pin.sim { background: #2563EB; }
+.center-dot { width: 28px; height: 28px; border-radius: 50%; background: rgba(37,99,235,.35); display: grid; place-items: center; }
+.center-dot i { width: 12px; height: 12px; border-radius: 50%; background: #fff; display: block; }
+.zlabel { position: absolute; transform: translate(-50%,-50%); white-space: nowrap; font: 500 11px 'JetBrains Mono', monospace; letter-spacing: .1em; color: #CBD5E1; pointer-events: none; }
+.radius-badge { background: #2563EB; color: #fff; font: 400 13px/32px Inter, sans-serif; height: 32px; padding: 0 12px; white-space: nowrap; width: max-content; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+}
